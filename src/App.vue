@@ -1,6 +1,14 @@
 <template>
   <h1>Meal App</h1>
   <hr />
+
+  <div id="nav">
+    <router-link to="/"> Inicio </router-link>
+
+    
+  </div>
+  <router-view></router-view>
+
   <h2>¿Deseas buscar una receta?</h2>
 
   <input
@@ -48,6 +56,7 @@ export default {
       categories: [],
       meals: [],
       search: null,
+      
       //Paginación
       current: 1,
       pageSize: 5,
