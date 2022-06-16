@@ -57,8 +57,7 @@ export default {
     axios
       .get("https://www.themealdb.com/api/json/v1/1/categories.php")
       .then((res) => {
-        console.log(res.data.categories);
-        //Estos son los elementos del objeto que llamaremos : idCategory strCategory strCategoryThumb strCategoryDescription
+              
         this.categories = res.data.categories;
       })
       .catch((err) => {
@@ -79,7 +78,7 @@ export default {
       return this.categories.slice(this.indexStart, this.indexEnd);
     },
   },
-  methods: {
+    methods: {
     searchData() {
       //Verificar si el campo de busqueda tiene texto
       if (this.search) {

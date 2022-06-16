@@ -1,5 +1,5 @@
 <template>
-  <p>Meal Details</p>
+  
 </template>
 
 <script>

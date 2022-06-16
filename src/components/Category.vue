@@ -1,5 +1,5 @@
 <template>
-  <div
+  <div @click="openCategoryList"
     class="category_container"
 
   >
@@ -12,7 +12,15 @@
 
 <script>
 export default {
-    props: ["category"]
+    props: ["category"],
+
+    methods: {
+      openCategoryList(){
+        this.$router.push("/category/" + this.category.strCategory);
+        
+      }
+
+    }
 };
 </script>
 
