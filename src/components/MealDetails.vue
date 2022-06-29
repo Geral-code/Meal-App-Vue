@@ -1,8 +1,102 @@
 <template>
 
 <div>
-    <h3> {{ meal_title }} </h3>
-    
+  <h3> {{ meal.strMeal}} | {{ meal.strArea}} </h3>
+ 
+  <img  v-bind:src="meal.strMealThumb" v-bind:alt="meal.strMeal" width="300"/>
+
+
+  <div class="text-center">
+    ...
+
+  </div>
+
+
+   <h3>Ingredients</h3>
+
+ <p> {{ meal.strIngredient1 }} </p>
+  <p> {{ meal.strIngredient2 }} </p>
+  <p> {{ meal.strIngredient3 }} </p>
+  <p> {{ meal.strIngredient4 }} </p>
+  <p> {{ meal.strIngredient5 }} </p>
+  <p> {{ meal.strIngredient6 }} </p>
+  <p> {{ meal.strIngredient7 }} </p>
+  <p> {{ meal.strIngredient8 }} </p>
+  <p> {{ meal.strIngredient9 }} </p>
+  <p>  {{ meal.strIngredient10 }} </p>
+  <p>  {{ meal.strIngredient11 }} </p>
+  <p>  {{ meal.strIngredient12 }} </p>
+  <p>  {{ meal.strIngredient13 }} </p>
+  <p>  {{ meal.strIngredient14 }} </p>
+  <p>  {{ meal.strIngredient15 }} </p>
+  <p>  {{ meal.strIngredient16 }} </p>
+  <p>  {{ meal.strIngredient17 }} </p>
+  <p>  {{ meal.strIngredient18 }} </p>
+  <p>  {{ meal.strIngredient19 }} </p>
+  <p>  {{ meal.strIngredient20 }} </p>
+
+
+ 
+
+     <h3>Measure | Portions </h3>
+
+  <p> {{ meal.strMeasure1 }} {{ meal.strIngredient1 }} </p>
+  <p> {{ meal.strMeasure2 }}  {{ meal.strIngredient2 }}</p>
+  <p> {{ meal.strMeasure3 }} {{ meal.strIngredient3 }} </p>
+  <p> {{ meal.strMeasure4 }} {{ meal.strIngredient4 }}</p>
+  <p> {{ meal.strMeasure5 }} {{ meal.strIngredient5 }}</p>
+  <p> {{ meal.strMeasure6 }} {{ meal.strIngredient6 }}</p>
+  <p> {{ meal.strMeasure7 }} {{ meal.strIngredient7 }}</p>
+  <p> {{ meal.strMeasure8 }} {{ meal.strIngredient8 }}</p>
+  <p> {{ meal.strMeasure9 }} {{ meal.strIngredient9 }}</p>
+  <p>  {{ meal.strMeasure10 }} {{ meal.strIngredient10 }}</p>
+  <p>  {{ meal.strMeasure11 }} {{ meal.strIngredient11 }}</p>
+  <p>  {{ meal.strMeasure12 }} {{ meal.strIngredient12 }}</p>
+  <p>  {{ meal.strMeasure13 }} {{ meal.strIngredient13 }}</p>
+  <p>  {{ meal.strMeasure14 }} {{ meal.strIngredient14 }}</p>
+  <p>  {{ meal.strMeasure15 }} {{ meal.strIngredient15 }}</p>
+  <p>  {{ meal.strMeasure16 }} {{ meal.strIngredient16 }}</p>
+  <p>  {{ meal.strMeasure17 }} {{ meal.strIngredient17 }}</p>
+  <p>  {{ meal.strMeasure18 }} {{ meal.strIngredient18 }}</p>
+  <p>  {{ meal.strMeasure19 }} {{ meal.strIngredient19 }}</p>
+  <p>  {{ meal.strMeasure20 }} {{ meal.strIngredient20 }}</p>
+  
+
+  <h3>Instructions</h3>
+  <p>{{ meal.strInstructions }} </p>
+
+  <div class="text-center">
+    ...
+
+  </div>
+
+  <h6 v-if="meal.strCreativeCommonsConfirmed">
+    Creative Commons {{ meal.strCreativeCommonsConfirmed }}
+
+  </h6>
+
+  <h6 v-if="meal.strDrinkAlternate">
+    Alternative Drink {{ meal.strDrinkAlternate}}
+
+   </h6>
+
+  <h6 v-if="meal.strSource">
+   Source: {{ meal.strSource}}
+
+   </h6>
+
+  <h6 v-if="meal.strYoutube">
+   Youtube: {{ meal.strYoutube}}
+
+   </h6> 
+
+
+  <h6 v-if="meal.strTags">
+   Tags: {{ meal.strTags }}
+
+   </h6> 
+
+
 </div>
 
 </template>
@@ -10,33 +104,37 @@
 <script>
 import axios from 'axios';
 
-
 export default {
-    name: "MealDetails",
-
-    data(){
+ name: "MealDetails",
+       data(){
         return {
-            meal_title: "Titulo de la receta" //this.$route.params.title,
-
+          meal: [],
         }
     },
     mounted() {
-     
-    
-       axios
-      .get("http://themealdb.com/api/json/v1/1/lookup.php?i=" + this.$route.params)
-      .then((res) => {
-    //   this.meals = res.data.meals;
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
+      
+      axios
+      .get("https://themealdb.com/api/json/v1/1/lookup.php?i=" + this.$route.params.id)
+.then((res) => {
+     // this.meals = res.data.meals;
+      this.meal = res.data.meals[0];
+
+     })
+     .catch((err) => {
+       console.log(err);
       });
     }
   
     
 }
+
+
+
 </script>
+
+
+
+
 
 <style>
 
