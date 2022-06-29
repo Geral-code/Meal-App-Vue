@@ -3,7 +3,7 @@
     class="category_container"
 
   >
-    <img v-bind:src="category.strCategoryThumb" alt="" />
+    <img v-bind:src="category.strCategoryThumb" v-bind:alt="category.strCategory" width="300"/>
 
     <h6>{{ category.strCategory }}</h6>
     <p>{{ category.strCategoryDescription }}</p>

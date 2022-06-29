@@ -81,12 +81,12 @@
    </h6>
 
   <h6 v-if="meal.strSource">
-   Source: {{ meal.strSource}}
+   Source: <a v-bind:href="meal.strSource" target="_blank">{{ meal.strSource}}</a>
 
    </h6>
 
   <h6 v-if="meal.strYoutube">
-   Youtube: {{ meal.strYoutube}}
+   Youtube: <a v-bind:href="meal.strYoutube" target="_blank">{{ meal.strYoutube}}</a>
 
    </h6> 
 
